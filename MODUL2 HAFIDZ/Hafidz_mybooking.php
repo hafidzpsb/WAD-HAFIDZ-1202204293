@@ -19,7 +19,7 @@
     </nav>
     <center>
         <h3><b>Thank You Hafidz_1202204293 for Reserving</b></h3>
-        <p>Find your best deal, here!<p>
+        <p>Please double check your reservation details<p>
     </center>
     <table class="table">
     <thead>
