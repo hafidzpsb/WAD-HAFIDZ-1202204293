@@ -43,7 +43,7 @@
             <form action="mybooking.php" method="POST">
                 <div class="mb-3">
                     <label for="Name">Name</label>
-                    <input type="text" id="Name" name="Name" class="form-control form-control-readonly" readonly value="HAFIDZ_1202204293">
+                    <input type="text" id="Name" name="Name" class="form-control form-control-readonly" value="Hafidz_1202204293" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="Book_Date">Book Date</label>

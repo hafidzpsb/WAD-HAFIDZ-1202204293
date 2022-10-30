@@ -37,59 +37,64 @@
     <tbody>
         <?php
             if(isset($_POST['Name'])){
-                echo '<tr>';
-                echo '<td>'.rand(1,10).'</td>';
-                echo '<td>'.$_POST['Name'].'</td>';
-                echo '<td>'.$_POST['Book_Date'].' '.$_POST['Start_Time'].'</td>';
-                echo '<td>'.date('Y-m-d',strtotime($_POST['Book_Date'].'+'.$_POST['Duration'].'days')).' '.$_POST['Start_Time'].'</td>';
-                echo '<td>'.$_POST['Car_Type'].'</td>';
-                echo '<td>'.$_POST['Phone_Number'].'</td>';
-                echo '<td><ul>';
-                foreach ($_POST['Add_Service'] ?? '1' as $AS){
-                    switch ($AS){
-                        case '25000':
-                            echo '<li>Health Protocol</li>';
+                if($_POST['Name']!=null){
+                    echo '<tr>';
+                    echo '<td>'.rand(1,10).'</td>';
+                    echo '<td>'.$_POST['Name'].'</td>';
+                    echo '<td>'.$_POST['Book_Date'].' '.$_POST['Start_Time'].'</td>';
+                    echo '<td>'.date('Y-m-d',strtotime($_POST['Book_Date'].'+'.$_POST['Duration'].'days')).' '.$_POST['Start_Time'].'</td>';
+                    echo '<td>'.$_POST['Car_Type'].'</td>';
+                    echo '<td>'.$_POST['Phone_Number'].'</td>';
+                    echo '<td><ul>';
+                    foreach ($_POST['Add_Service'] as $AS){
+                        switch ($AS){
+                            case '25000':
+                                echo '<li>Health Protocol</li>';
+                                break;
+                            case '100000':
+                                echo '<li>Driver</li>';
+                                break;
+                            case '250000':
+                                echo '<li>Full filled</li>';        
+                                break;                
+                            default:
+                                echo '';
+                        }
+                    }
+                    echo '</td></ul>';
+                    echo '<td>';
+                    switch ($_POST['Car_Type']){
+                        case "Toyota":
+                            $price=200000;
+                            $price=$price*$_POST['Duration'];
+                            foreach ($_POST['Add_Service'] as $AS){
+                                $price+=(int)$AS;
+                            }
+                            echo 'Rp.'.$price;
+                            echo '</td>';
                             break;
-                        case '100000':
-                            echo '<li>Driver</li>';
+                        case "Honda":
+                            $price=100000;
+                            $price=$price*$_POST['Duration'];
+                            foreach (($_POST['Add_Service']) as $AS){
+                                $price+=(int)$AS;
+                            }
+                            echo 'Rp.'.$price;
+                            echo '</td>';
                             break;
-                        case '250000':
-                            echo '<li>Full filled</li>';        
-                            break;                
-                        default:
-                            echo '';
+                        case "Mitsubishi":
+                            $price=250000;
+                            $price=$price*$_POST['Duration'];
+                            foreach ($_POST['Add_Service'] as $AS){
+                                $price+=(int)$AS;
+                            }
+                            echo 'Rp.'.$price;
+                            echo '</td>';
+                            break;
                     }
                 }
-                echo '</td></ul>';
-                echo '<td>';
-                switch ($_POST['Car_Type']){
-                    case "Toyota":
-                        $price=200000;
-                        $price=$price*$_POST['Duration'];
-                        foreach ($_POST['Add_Service'] as $AS){
-                            $price+=(int)$AS;
-                        }
-                        echo 'Rp.'.$price;
-                        echo '</td>';
-                        break;
-                    case "Honda":
-                        $price=100000;
-                        $price=$price*$_POST['Duration'];
-                        foreach (($_POST['Add_Service']) as $AS){
-                            $price+=(int)$AS;
-                        }
-                        echo 'Rp.'.$price;
-                        echo '</td>';
-                        break;
-                    case "Mitsubishi":
-                        $price=250000;
-                        $price=$price*$_POST['Duration'];
-                        foreach ($_POST['Add_Service'] as $AS){
-                            $price+=(int)$AS;
-                        }
-                        echo 'Rp.'.$price;
-                        echo '</td>';
-                        break;
+                else{
+                    echo '<td colspan="8"><center>No service</center></td>';
                 }
             }
             else{
