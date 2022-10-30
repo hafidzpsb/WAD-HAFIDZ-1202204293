@@ -12,8 +12,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="d-flex justify-content-center container-fluid">
             <ul class="navbar-nav justify-content-center">
-                <li class="nav-item"><a class="nav-link" href="/modul2/home.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/modul2/booking.php">Booking</a></li>
+                <li class="nav-item"><a class="nav-link" href="/modul2/Hafidz_home.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/modul2/Hafidz_booking.php">Booking</a></li>
             </ul>
         </div>
     </nav>
@@ -40,7 +40,7 @@
         ?>
         </div>
         <div class="col">
-            <form action="mybooking.php" method="POST">
+            <form action="Hafidz_mybooking.php" method="POST">
                 <div class="mb-3">
                     <label for="Name">Name</label>
                     <input type="text" id="Name" name="Name" class="form-control form-control-readonly" value="Hafidz_1202204293" readonly>
@@ -95,7 +95,7 @@
                         </label>
                     </div>
                     <div class="d-grid gap-2">
-                        <input class="btn btn-primary" type="submit" name="Book" value="Book">                      
+                        <input class="btn btn-primary" type="submit" name="Book" value="Book">                   
                     </div>
                 </div>
             </form>

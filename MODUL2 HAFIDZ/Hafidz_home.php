@@ -12,8 +12,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="d-flex justify-content-center container-fluid">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/modul2/home.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/modul2/booking.php">Booking</a></li>
+                <li class="nav-item"><a class="nav-link" href="/modul2/Hafidz_home.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/modul2/Hafidz_booking.php">Booking</a></li>
             </ul>
         </div>
     </nav>
@@ -35,7 +35,7 @@
                             <p><b>7 kursi</b></p>
                             <p><b>1998 cc</b></p>
                             <p><b>Automatic</b></p>
-                            <a class="btn btn-primary" href="/modul2/booking.php?mobil=<?php echo 'toyota' ?>">Book now!</a>
+                            <a class="btn btn-primary" href="/modul2/Hafidz_booking.php?mobil=<?php echo 'toyota' ?>">Book now!</a>
                         </center>
                     </div>
                 </td>
@@ -48,7 +48,7 @@
                             <p><b>5 kursi</b></p>
                             <p><b>1497 cc</b></p>
                             <p><b>Automatic</b></p>
-                            <a class="btn btn-primary" href="/modul2/booking.php?mobil=<?php echo 'honda' ?>">Book now!</a>
+                            <a class="btn btn-primary" href="/modul2/Hafidz_booking.php?mobil=<?php echo 'honda' ?>">Book now!</a>
                         </center>
                     </div>
                 </td>
@@ -61,7 +61,7 @@
                             <p><b>7 kursi</b></p>
                             <p><b>1499 cc</b></p>
                             <p><b>Automatic</b></p>
-                            <a class="btn btn-primary" href="/modul2/booking.php?mobil=<?php echo 'mitsubishi' ?>">Book now!</a>
+                            <a class="btn btn-primary" href="/modul2/Hafidz_booking.php?mobil=<?php echo 'mitsubishi' ?>">Book now!</a>
                         </center>
                     </div>
                 </td>
