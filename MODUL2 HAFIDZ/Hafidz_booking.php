@@ -12,8 +12,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="d-flex justify-content-center container-fluid">
             <ul class="navbar-nav justify-content-center">
-                <li class="nav-item"><a class="nav-link" href="/modul2/Hafidz_home.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/modul2/Hafidz_booking.php">Booking</a></li>
+                <li class="nav-item"><a class="nav-link" href="Hafidz_home.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="Hafidz_booking.php">Booking</a></li>
             </ul>
         </div>
     </nav>
@@ -40,14 +40,14 @@
         ?>
         </div>
         <div class="col">
-            <form action="Hafidz_mybooking.php" method="POST">
+            <form action="Hafidz_mybooking.php" >
                 <div class="mb-3">
                     <label for="Name">Name</label>
                     <input type="text" id="Name" name="Name" class="form-control form-control-readonly" value="Hafidz_1202204293" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="Book_Date">Book Date</label>
-                    <input type="date" id="Book_Date"" name="Book_Date"" class="form-control" placeholder="mm / dd / yyyy">
+                    <input type="date" id="Book_Date"" name="TANGGALBOOKING"" class="form-control" placeholder="mm / dd / yyyy">
                 </div>
                 <div class="mb-3">
                     <label for="Start_Time">Start Time</label>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="Phone_Number">Phone Number</label>
-                    <input type="tel" name="Phone_Number" id="Phone_Number" class="form-control" placeholder="">
+                    <input type="tel" name="PHONE" id="Phone_Number" class="form-control" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="Add_Service"> Add Service(s):</label>
