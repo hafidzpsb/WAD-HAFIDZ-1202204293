@@ -12,8 +12,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="d-flex justify-content-center container-fluid">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/modul2/Hafidz_home.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/modul2/Hafidz_booking.php">Booking</a></li>
+                <li class="nav-item"><a class="nav-link" href="Hafidz_home.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="Hafidz_booking.php">Booking</a></li>
             </ul>
         </div>
     </nav>
