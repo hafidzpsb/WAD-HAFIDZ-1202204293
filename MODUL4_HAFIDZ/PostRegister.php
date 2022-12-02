@@ -18,7 +18,7 @@
                 header("location:../MODUL4_HAFIDZ/Register.php");
             }
         }else{
-            $tambah=mysqli_query($connect, "users_hafidz (nama, email, no_hp, password) VALUES ('$username', '$email', '$no_hp', '$password')");
+            $tambah=mysqli_query($connect, "INSERT users_hafidz (nama, email, no_hp, password) VALUES ('$username', '$email', '$no_hp', '$password')");
             if($tambah){
                 $_SESSION['register'] = 'berhasil';
                 header("location:../MODUL4_HAFIDZ/Login.php");

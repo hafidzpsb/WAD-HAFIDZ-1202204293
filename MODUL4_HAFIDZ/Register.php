@@ -20,7 +20,7 @@
     <div class="d-flex justify-content-center align-items-center" style="margin-top: 50px;">
         <div class="col-md-3">
             <div class="card">
-                <form action="../MODUL4_HAFIDZ/PostRegister.php" method="GET">
+                <form action="../MODUL4_HAFIDZ/PostRegister.php" method="POST">
                     <div class="card-body">
                         <h5 class="card-title" style="text-align: center;">Register</h5>
                         <hr>
