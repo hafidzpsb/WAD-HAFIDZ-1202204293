@@ -11,7 +11,7 @@ if(isset($_POST['remember'])){
 $connect=mysqli_connect("localhost", "root", "", "wad_modul4");
 $email=$_POST['email'];
 $password=$_POST['password'];
-$dt_username="SELECT * FROM users_hafidz WHERE email='$email'";
+$dt_username="users_hafidz WHERE email='$email'";
 $executeQuery=mysqli_query($connect, $dt_username);
 if(mysqli_num_rows($executeQuery)>0){
     $result=mysqli_fetch_assoc($executeQuery);
