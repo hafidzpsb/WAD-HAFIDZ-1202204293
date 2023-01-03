@@ -53,6 +53,13 @@
                 <a class="dropdown-item" href="/profil_anak">Profil Anak</a>
               </div>
             </li>
+            @auth
+              <li class="nav-item"><a href="{{route('logout')}}" class="nav-link" style="text-align: center"><br><br>Logout</a>
+            @endauth
+            @guest
+              <li class="nav-item"><a href="{{route('login')}}" class="nav-link" style="text-align: center"><br><br>Login</a>
+              <li class="nav-item"><a href="{{route('register')}}" class="nav-link" style="text-align: center"><br><br>Register</a>
+            @endguest
 	        </ul>
 	      </div>
 	    </div>
