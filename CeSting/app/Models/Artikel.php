@@ -9,6 +9,5 @@ class Artikel extends Model
 {
     use HasFactory;
     protected $table = "artikel";
-    public $timestamps = false;
     protected $guarded = ['id'];
 }

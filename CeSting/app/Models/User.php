@@ -11,12 +11,18 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'user';
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'email',
-        'nama_depan',
-        'nama_belakang',
         'username',
         'password',
     ];
+    public function profil()
+    {
+        return $this->hasOne(Profil::class);
+    }
+    public function forum()
+    {
+        return $this->hasMany(Forum::class);
+    }
 }

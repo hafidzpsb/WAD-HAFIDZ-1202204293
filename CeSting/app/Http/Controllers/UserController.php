@@ -18,16 +18,12 @@ class UserController extends Controller
     {
         $request->validate([
             'email' => 'required',
-            'nama_depan' => 'required',
-            'nama_belakang' => 'required',
             'username' => 'required|unique:user',
             'password' => 'required',
             'password_confirmation' => 'required|same:password',
         ]);
         $user = new User([
             'email' => $request -> email,
-            'nama_depan' => $request -> nama_depan,
-            'nama_belakang' => $request -> nama_belakang,
             'username' => $request -> username,
             'password' => Hash::make($request -> password),
         ]);
@@ -47,9 +43,8 @@ class UserController extends Controller
         ]);
         if (Auth::attempt(['username' => $request -> username, 'password' => $request -> password])) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/profil');
         }
-
         return back()->withErrors([
             'password' => 'Wrong username or password',
         ]);

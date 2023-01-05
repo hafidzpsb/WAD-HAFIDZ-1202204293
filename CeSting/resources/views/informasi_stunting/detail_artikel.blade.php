@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col">
             <div class="d-flex flex-column p-3 py-5">
-                <h1><span class="font-weight-bold">{{$artikel -> judul}}</span></h1>
+                <h1><span class="font-weight-bold"><center>{{$artikel -> judul}}</center></span></h1>
             </div>
         </div>
     </div>

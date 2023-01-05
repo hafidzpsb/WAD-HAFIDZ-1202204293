@@ -13,12 +13,6 @@
                         <input type="email" class="form-control" name="email" placeholder="Email">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" name="nama_depan" placeholder="Nama Depan">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" name="nama_belakang" placeholder="Nama Belakang">
-                    </div>
-                    <div class="mb-3">
                         <input type="text" class="form-control" name="username" placeholder="Username">
                     </div>
                     <div class="mb-3">

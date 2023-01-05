@@ -1,4 +1,3 @@
-<!-- Pusing, Stress -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,54 +10,72 @@
   <script src="{{asset('assets/js/jquery.min.js')}}"></script>
   <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
   <script src="{{asset('assets/js/popper.min.js')}}"></script>
+  <?php
+    use App\Models\Profil;
+    use App\Models\Profilanak;
+  ?>
 </head>
 <body>
   <header>
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
 	    <div class="container">
 	    	<a class="navbar-brand" href="/"><img src="{{asset('assets/images/Logo-CeSting.png')}}" style="width: 80px; height: 80px;">CeSting</a>
-        <!-- Ni gtw mau pake atau ga
-	    	<form action="#" class="searchform order-sm-start order-lg-last">
-          <div class="form-group d-flex">
-            <input type="text" class="form-control pl-3" placeholder="Search">
-            <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
-          </div>
-        </form>
-        -->
 	      <div class="collapse navbar-collapse">
 	        <ul class="navbar-nav m-auto">
             <li class="nav-item active"><a href="/" class="nav-link" style="text-align: center"><img src="{{asset('assets/images/Icon-Home.png')}}" style="width: 30px; height: 30px; margin-right: 5px"><br><br>Home</a></li>
-	        	<li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: center"><img src="{{asset('assets/images/Icon-Si_Ibu.png')}}" style="width: 30px; height: 30px; margin-right: 5px"><br><br>Cek Si Ibu</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="#">Rekam Medis</a>
-                <a class="dropdown-item" href="#">Kalender Medis</a>
-                <a class="dropdown-item" href="#">Lokasi Pengecekan</a>
-              </div>
-            </li>
-	        	<li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: center"><img src="{{asset('assets/images/Icon-1000_Hari_Anak.png')}}" style="width: 30px; height: 30px; margin-right: 5px"><br><br>1000 Hari Anak</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="#">Catat Tumbuh</a>
-                <a class="dropdown-item" href="#">Imunisasi</a>
-                <a class="dropdown-item" href="#">Forum Cepat</a>
-              </div>
-            </li>
-            <li class="nav-item"><a href="artikel" class="nav-link" style="text-align: center"><img src="{{asset('assets/images/Icon-Informasi_Stunting.png')}}" style="width: 30px; height: 30px; margin-right: 5px"></img><br><br>Informasi Stunting</a></li>
-	        	<li class="nav-item"><a href="#" class="nav-link" style="text-align: center"><img src="{{asset('assets/images/Icon-Konsultasi.png')}}" style="width: 30px; height: 30px; margin-right: 5px"></img><br><br>Konsultasi</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: center"><img src="{{asset('assets/images/Icon-Profil.png')}}" style="width: 30px; height: 30px; margin-right: 5px"><br><br>Profil</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="/profil">Profil</a>
-                <a class="dropdown-item" href="/profil_anak">Profil Anak</a>
-              </div>
-            </li>
             @auth
-              <li class="nav-item"><a href="{{route('logout')}}" class="nav-link" style="text-align: center"><br><br>Logout</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: center"><img src="{{asset('assets/images/Icon-Si_Ibu.png')}}" style="width: 30px; height: 30px; margin-right: 5px"><br><br>Cek Si Ibu</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <?php if (Profil::all()->count()==0) { ?>
+                    <a class="dropdown-item" href="/profil">Rekam Medis</a>
+                    <a class="dropdown-item" href="/profil">Lokasi Pengecekan</a>       
+                  <?php } elseif (Profilanak::all()->count()==0) { ?>
+                    <a class="dropdown-item" href="/profil_anak">Rekam Medis</a>
+                    <a class="dropdown-item" href="/profil_anak">Lokasi Pengecekan</a>   
+                  <?php } else { ?>
+                    <a class="dropdown-item" href="/rekam_medis">Rekam Medis</a>
+                    <a class="dropdown-item" href="/lokasi_pengecekan">Lokasi Pengecekan</a>    
+                  <?php } ?>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: center"><img src="{{asset('assets/images/Icon-1000_Hari_Anak.png')}}" style="width: 30px; height: 30px; margin-right: 5px"><br><br>1000 Hari Anak</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <?php if (Profil::all()->count()==0) { ?>
+                    <a class="dropdown-item" href="/profil">Catat Tumbuh</a>
+                    <a class="dropdown-item" href="/profil">Imunisasi</a>
+                    <a class="dropdown-item" href="/profil">Forum Cepat</a>
+                  <?php } elseif (Profilanak::all()->count()==0) { ?>
+                    <a class="dropdown-item" href="/profil_anak">Catat Tumbuh</a>
+                    <a class="dropdown-item" href="/profil_anak">Imunisasi</a>
+                    <a class="dropdown-item" href="/profil_anak">Forum Cepat</a>
+                  <?php } else { ?>
+                    <a class="dropdown-item" href="/catat_tumbuh">Catat Tumbuh</a>
+                    <a class="dropdown-item" href="#">Imunisasi</a>
+                    <a class="dropdown-item" href="/forum">Forum Cepat</a>
+                  <?php } ?>
+                </div>
+              </li>
+              <?php if (Profil::all()->count()==0) { ?>
+                <li class="nav-item"><a href="/profil" class="nav-link" style="text-align: center"><img src="{{asset('assets/images/Icon-Informasi_Stunting.png')}}" style="width: 30px; height: 30px; margin-right: 5px"></img><br><br>Informasi Stunting</a></li>
+              <?php } elseif (Profilanak::all()->count()==0) { ?>
+                <li class="nav-item"><a href="/profil_anak" class="nav-link" style="text-align: center"><img src="{{asset('assets/images/Icon-Informasi_Stunting.png')}}" style="width: 30px; height: 30px; margin-right: 5px"></img><br><br>Informasi Stunting</a></li>
+              <?php } else { ?>
+                <li class="nav-item"><a href="/artikel" class="nav-link" style="text-align: center"><img src="{{asset('assets/images/Icon-Informasi_Stunting.png')}}" style="width: 30px; height: 30px; margin-right: 5px"></img><br><br>Informasi Stunting</a></li>
+              <?php } ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: center"><img src="{{asset('assets/images/Icon-Profil.png')}}" style="width: 30px; height: 30px; margin-right: 5px"><br><br>Profil</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="/profil">Profil</a>
+                  <a class="dropdown-item" href="/profil_anak">Profil Anak</a>
+                </div>
+              </li>
+              <li class="nav-item"><a href="{{route('logout')}}" class="nav-link" style="text-align: center"><img src="{{asset('assets/images/Icon-Logout.png')}}" style="width: 30px; height: 30px; margin-right: 5px"></img><br><br>Logout</a></li>
             @endauth
             @guest
-              <li class="nav-item"><a href="{{route('login')}}" class="nav-link" style="text-align: center"><br><br>Login</a>
-              <li class="nav-item"><a href="{{route('register')}}" class="nav-link" style="text-align: center"><br><br>Register</a>
+              <li class="nav-item"><a href="{{route('login')}}" class="nav-link" style="text-align: center"><img src="{{asset('assets/images/Icon-Logout.png')}}" style="width: 30px; height: 30px; margin-right: 5px"><br><br>Login</a>
+              <li class="nav-item"><a href="{{route('register')}}" class="nav-link" style="text-align: center"><img src="{{asset('assets/images/Icon-Register.png')}}" style="width: 30px; height: 30px; margin-right: 5px"><br><br>Register</a>
             @endguest
 	        </ul>
 	      </div>
@@ -69,7 +86,4 @@
     @yield('isihalaman')
   </main>
 </body>
-<footer>
-  <!-- Perlu? -->
-</footer>
 </html>
