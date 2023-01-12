@@ -26,6 +26,7 @@ class UserController extends Controller
             'email' => $request -> email,
             'username' => $request -> username,
             'password' => Hash::make($request -> password),
+            'type' => 'user'
         ]);
         $user->save();
         return redirect()->route('login')->with('success', 'Registration success. Please login!');
@@ -42,11 +43,11 @@ class UserController extends Controller
             'password' => 'required',
         ]);
         if (Auth::attempt(['username' => $request -> username, 'password' => $request -> password])) {
-            $request->session()->regenerate();
-            return redirect()->intended('/profil');
-        }
+                $request->session()->regenerate();
+                return redirect()->intended('/');
+            }
         return back()->withErrors([
-            'password' => 'Wrong username or password',
+            'password' => 'Wrong username or password!',
         ]);
     }
     public function logout(Request $request)

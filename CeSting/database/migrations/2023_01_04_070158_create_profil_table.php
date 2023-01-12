@@ -9,8 +9,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('profil', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id')->unique();
+            $table->unsignedBigInteger('user_id')->unique()->primary();
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->string('nama_depan')->nullable();
             $table->string('nama_belakang')->nullable();

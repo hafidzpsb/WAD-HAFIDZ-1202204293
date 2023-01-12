@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-md-5 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                <span class="font-weight-bold">Username</span>
-                <span class="text-black-50">Email</span>
+                <img class="rounded-circle mt-5" width="150px" src="https://cdn-icons-png.flaticon.com/512/522/522335.png">
+                <span class="font-weight-bold">{{Auth::user()->username}}</span>
+                <span class="text-black-50">{{Auth::user()->email}}</span>
                 <span></span>
             </div>
         </div>

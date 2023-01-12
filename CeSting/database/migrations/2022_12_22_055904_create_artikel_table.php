@@ -9,9 +9,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('artikel', function (Blueprint $table) {
-            $table->id();
+            $table->id('artikel_id');
             $table->string('judul');
             $table->longText('isi');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

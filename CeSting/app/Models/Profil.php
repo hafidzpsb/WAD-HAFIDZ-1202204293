@@ -9,7 +9,7 @@ class Profil extends Model
 {
     use HasFactory;
     protected $table = 'profil';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'user_id';
     protected $fillable = [
         'user_id',
         'nama_depan',
@@ -26,10 +26,10 @@ class Profil extends Model
     }
     public function profilanak()
     {
-        return $this->hasMany('App\Models\Profilanak');
+        return $this->hasMany('App\Models\ProfilAnak');
     }
     public function rekammedis()
     {
-        return $this->hasOne('App\Models\Rekammedis');
+        return $this->hasOne('App\Models\RekamMedis');
     }
 }

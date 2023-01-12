@@ -1,15 +1,5 @@
 @extends('navbar')
 @section('isihalaman')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="http://maps.google.com/maps/api/js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
-<style type="text/css">
-    #mymap {
-        border:1px solid red;
-        width: 800px;
-        height: 500px;
-    }
-</style>
 <div class="container mt-5 mb-5">
     <div class="card row mb-3">
         <div class="col">
@@ -19,28 +9,55 @@
             </div>
         </div>
     </div>
-    <center>
-        <div id="mymap"></div>
-            <script type="text/javascript">
-                var locations = <?php print_r(json_encode($locations)) ?>;    
-                var mymap = new GMaps({      
-                    el: '#mymap',
-                    lat: 6.9175,
-                    lng: 107.6191,      
-                    zoom:6
-                });
-                $.each( locations, function( index, value ){
-                    mymap.addMarker({
-                        lat: value.lat,
-                        lng: value.lng,
-                        title: value.rumah_sakit,
-                        click: function(e) {
-                        alert('This is '+value.rumah_sakit+', gujarat from India.');
-                    }
-                    });
-                });
-            </script>
+    <?php if (Auth::user()->type == 'admin') { ?>
+        <div class="card row mb-3">
+            <a href="/lokasi_pengecekan/create" class="btn btn-primary">Tambah +</a>
         </div>
-    </center>
+    <?php } ?>
+    @foreach($listrumahsakit as $rumahsakit)
+        <div class="card row mb-3">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2><b>{{$rumahsakit -> rumah_sakit}}<b></h2></a>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <h5>{{$rumahsakit -> alamat}}</h5>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <p>{{$rumahsakit -> no_telepon}}</p>
+                    </div>
+                </div>
+                <?php if (Auth::user()->type == 'admin') { ?>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <a href="/lokasi_pengecekan/{{$rumahsakit -> rumah_sakit_id}}/edit" class="btn btn-primary">
+                                Edit
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <form action="/lokasi_pengecekan/{{$rumahsakit -> rumah_sakit_id}}" method="POST">
+                                @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-primary">
+                                        Delete
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                            <a href="/lokasi_pengecekan/{{$rumahsakit -> rumah_sakit_id}}"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></a>
+                                        </svg>
+                                    </button>
+                            </form>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    @endforeach
 </div>
 @endsection

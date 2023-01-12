@@ -8,16 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Catattumbuh extends Model
 {
     use HasFactory;
-    protected $table = 'catattumbuh';
-    protected $primaryKey = 'id';
+    protected $table = 'catat_tumbuh';
+    protected $primaryKey = 'catat_id';
     protected $fillable = [
-        'anak_id',
+        'catat_id',
+        'username',
         'tinggi_badan_anak',
         'berat_badan_anak',
         'lingkar_kepala_anak',
+        'tanggal_catat_tumbuh',
     ];
-    public function profilanak()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Profilanak');
+        return $this->belongsTo('App\Models\User');
     }
 }

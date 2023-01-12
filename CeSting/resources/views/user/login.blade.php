@@ -4,12 +4,12 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             @if(session('success'))
-            <p class="alert alert-success">{{ session('success') }}</p>
+                <div class="alert alert-success my-5" role="alert">{{ session('success') }}</div>
             @endif
             @if($errors->any())
-            @foreach($errors->all() as $err)
-            <p class="alert alert-danger">{{ $err }}</p>
-            @endforeach
+                @foreach($errors->all() as $err)
+                    <div class="alert alert-danger my-5" role="alert">{{ $err }}</div>
+                @endforeach
             @endif
             <div class="card my-5">
                 <form class="card-body cardbody-color p-lg-5" action="{{route('login.action')}}" method="POST" enctype="multipart/form-data">

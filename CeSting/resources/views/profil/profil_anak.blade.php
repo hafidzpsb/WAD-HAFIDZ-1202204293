@@ -4,8 +4,8 @@
     <div class="row">
         <div class="col-md-5 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                <span class="font-weight-bold">Nama Anak</span>
+                <img class="rounded-circle mt-5" width="150px" src="https://cdn-icons-png.flaticon.com/512/4336/4336928.png">
+                <span class="font-weight-bold">{{App\Models\Profilanak::where('anak_id', Auth::user()->id)->value('nama_depan_anak')}}</span>
                 <span></span>
             </div>
         </div>

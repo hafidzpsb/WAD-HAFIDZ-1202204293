@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Profilanak extends Model
 {
     use HasFactory;
-    protected $table = 'profilanak';
-    protected $primaryKey = 'id';
+    protected $table = 'profil_anak';
+    protected $primaryKey = 'anak_id';
     protected $fillable = [
         'anak_id',
         'nama_depan_anak',
@@ -19,9 +19,5 @@ class Profilanak extends Model
     public function profil()
     {
         return $this->belongsTo('App\Models\Profil');
-    }
-    public function catattumbuh()
-    {
-        return $this->hasOne(Catattumbuh::class);
     }
 }
